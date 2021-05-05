@@ -14,6 +14,26 @@ pipeline{
                                     sh 'cd spring-petclinic-angular/static-content && curl https://jcenter.bintray.com/com/athaydes/rawhttp/rawhttp-cli/1.0/rawhttp-cli-1.0-all.jar -o rawhttp.jar && nohup java -jar ./rawhttp.jar serve . -p 4200 &'
                               }
                 }
+                                stage('Newman by Postman') {
+                                		steps {
+                                		        sleep(10)
+                                				script {
+                                                    	try {
+                                							sh 'newman run  petclinic.collection.json --environment petclinic.environment.json --reporters junit'
+                                						}
+                                						catch (Exception e) {
+                                                        	echo "Tests are failing, continue pipeline..."
+                                                    	}
+                                                }
+                                		}
+                                		post {
+                                			always {
+                                					junit '***/*xml'
+                                					}
+                                			}
+
+                                }
+
                 stage('Robot Framework') {
                               steps {
                                     sleep(10)
@@ -39,28 +59,7 @@ pipeline{
                                     }
                               }
                 }
-                stage('Newman by Postman') {
-                		steps {
-                		        sleep(10)
-                				script {
-                                    	try {
-                							sh 'cd Postman && newman run  petclinic.collection.json --environment petclinic.environment.json --reporters junit'
-                						}
-                						catch (Exception e) {
-                                        	echo "Tests are failing, continue pipeline..."
-                                    	}
-                                }
-                		}
-                		post {
-                			always {
-                					junit '***/*xml'
-                					}
-                			}
-
-                		}
             }
-
-
        }
     }
 }
