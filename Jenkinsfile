@@ -39,6 +39,24 @@ pipeline{
                                     }
                               }
                 }
+                stage('Newman by Postman') {
+                		steps {
+                				script {
+                                    	try {
+                								sh 'newman run  petclinic.collection.json --environment petclinic.environment.json --reporters junit'
+                						}
+                						catch (Exception e) {
+                                        	echo "Tests are failing, continue pipeline..."
+                                    	}
+                                }
+                		}
+                		post {
+                			always {
+                					junit '***/*xml'
+                					}
+                			}
+
+                		}
             }
        }
     }
