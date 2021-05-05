@@ -43,7 +43,7 @@ pipeline{
                 		steps {
                 				script {
                                     	try {
-                								sh 'newman run  petclinic.collection.json --environment petclinic.environment.json --reporters junit'
+                								sh 'newman run  Postman/petclinic.collection.json --environment Postman/petclinic.environment.json --reporters junit'
                 						}
                 						catch (Exception e) {
                                         	echo "Tests are failing, continue pipeline..."
@@ -58,6 +58,8 @@ pipeline{
 
                 		}
             }
+
+
        }
     }
 }
