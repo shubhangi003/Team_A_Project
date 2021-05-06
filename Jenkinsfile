@@ -18,11 +18,7 @@ pipeline{
                             steps {
                                 sleep(10)
                                 	script {
-                                        try {
-                                            sh 'newman run Postman/petclinic.collection.json --environment Postman/petclinic.environment.json --reporters junit'
-                                        } catch (Exception e) {
-                                             echo "Tests are failing, continue pipeline..."
-                                        }
+                                        sh 'newman run Postman/petclinic.collection.json --environment Postman/petclinic.environment.json --reporters junit'
                                     }
                             }
                             post {
