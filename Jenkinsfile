@@ -1,23 +1,22 @@
 pipeline{
     agent any
     stages{
-        stage('Para'){
-            parallel{
-                 stage('Build and Run the Server'){
-                            steps{
-                                sh 'cd spring-petclinic-rest && nohup mvn spring-boot:run &'
-                            }
-                }
-                 stage('Run the Frontend'){
-                              steps{
-                                    sleep(10)
-                                    sh 'cd spring-petclinic-angular/static-content && curl https://jcenter.bintray.com/com/athaydes/rawhttp/rawhttp-cli/1.0/rawhttp-cli-1.0-all.jar -o rawhttp.jar && nohup java -jar ./rawhttp.jar serve . -p 4200 &'
-                              }
-                }
+        stage('Build API') {
+           steps {
+               sh "cd spring-petclinic-rest && nohup mvn spring-boot:run &"
+               sleep(20)
+           }
+        }
+         stage('Build Website') {
+            steps {
+               sh 'cd spring-petclinic-angular/static-content && curl https://jcenter.bintray.com/com/athaydes/rawhttp/rawhttp-cli/1.0/rawhttp-cli-1.0-all.jar -o rawhttp.jar && nohup java -jar ./rawhttp.jar serve . -p 4200 &'  
+                sleep(3)
+                  }
+           }
                 stage('Postman') {
                             steps {
                                 sleep(10)
-                                sh 'newman run Spring_PetClinic_Copy.postman_collection.json --environment PetClinic_Environment.postman_environment.json --reporters junit'
+                                sh 'newman run copy1.postman_collection.json --environment copy1.postman_environment.json --reporters junit'
                             }
                             post {
                                 	always {
@@ -27,32 +26,6 @@ pipeline{
 
                 }
 
-                stage('Robot Framework') {
-                              steps {
-                                    sleep(10)
-                                    sh 'robot --variable BROWSER:headlesschrome -d RobotFrameWork/Results RobotFrameWork/Tests/**.robot'
-                              }
-                              post {
-                                    always {
-                                           script {
-                                                  step(
-                                                       [
-                                                             $class               : 'RobotPublisher',
-                                                              outputPath          : 'RobotFrameWork/Results',
-                                                              outputFileName      : '**/output.xml',
-                                                              reportFileName      : '**/report.html',
-                                                              logFileName         : '**/log.html',
-                                                              disableArchiveOutput: false,
-                                                              passThreshold       : 50,
-                                                              unstableThreshold   : 40,
-                                                              otherFiles          : "**/*.png,**/*.jpg",
-                                                       ]
-                                                  )
-                                           }
-                                    }
-                              }
-                }
-            }
-       }
+               
     }
 }
