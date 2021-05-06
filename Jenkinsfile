@@ -17,7 +17,7 @@ pipeline{
                 stage('Postman') {
                             steps {
                                 sleep(30)
-                                sh 'newman run Postman/borrowed.collection.json --environment Postman/borrowed.environment.json --reporters junit'
+                                sh 'newman run Postman/petclinic.collection.json --environment Postman/petclinic.environment.json --reporters junit'
                             }
                             post {
                                 	always {
