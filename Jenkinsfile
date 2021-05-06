@@ -17,7 +17,7 @@ pipeline{
                 stage('Postman') {
                             steps {
                                 sleep(10)
-                                sh 'newman run Spring_PetClinic_Copy.postman_collection.json --environment PetClinic_Environment.postman_environment.json --reporters junit'
+                                sh 'newman run RestfulBooker_Feng/Restful_Booker_Feng_LabPostman.postman_collection.json --environment RestfulBooker_Feng/Restful_Booker_Feng.postman_environment.json --reporters junit'
                             }
                             post {
                                 	always {
