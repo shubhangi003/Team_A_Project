@@ -17,7 +17,7 @@ pipeline{
                 stage('Postman') {
                             steps {
                                 sleep(10)
-                                sh 'newman run Spring_PetClinic_Copy.postman_collection.json --environment PetClinic_Environment.postman_environment.json --reporters junit'
+                                sh 'newman run copy1.postman_collection.json --environment copy1.postman_environment.json --reporters junit'
                             }
                             post {
                                 	always {
@@ -27,32 +27,6 @@ pipeline{
 
                 }
 
-                stage('Robot Framework') {
-                              steps {
-                                    sleep(10)
-                                    sh 'robot --variable BROWSER:headlesschrome -d RobotFrameWork/Results RobotFrameWork/Tests/**.robot'
-                              }
-                              post {
-                                    always {
-                                           script {
-                                                  step(
-                                                       [
-                                                             $class               : 'RobotPublisher',
-                                                              outputPath          : 'RobotFrameWork/Results',
-                                                              outputFileName      : '**/output.xml',
-                                                              reportFileName      : '**/report.html',
-                                                              logFileName         : '**/log.html',
-                                                              disableArchiveOutput: false,
-                                                              passThreshold       : 50,
-                                                              unstableThreshold   : 40,
-                                                              otherFiles          : "**/*.png,**/*.jpg",
-                                                       ]
-                                                  )
-                                           }
-                                    }
-                              }
-                }
-            }
-       }
+               
     }
 }
