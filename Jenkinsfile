@@ -15,7 +15,7 @@ pipeline{
            }
                 stage('Postman') {
                             steps {
-                                sh 'newman run copy1.postman_collection.json --environment copy1.postman_environment.json --reporters junit'
+                                sh 'newman run RestfulBooker_collection.json --environment RestfulBooker_environment.json --reporters junit'
                             }
                             post {
                                 	always {
