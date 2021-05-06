@@ -23,11 +23,6 @@ pipeline{
                                         } catch (Exception e) {
                                              echo "Tests are failing, continue pipeline..."
                                         }
-                                        try {
-                                             sh 'newman run Postman/petclinic.collection.json --iteration-count 10 --environment Postman/petclinic.environment.json --verbose'
-                                        } catch (Exception e) {
-                                              echo "Tests are failing, continue pipeline..."
-                                        }
                                     }
                             }
                             post {
@@ -48,7 +43,7 @@ pipeline{
                                            script {
                                                   step(
                                                        [
-                                                             $class              : 'RobotPublisher',
+                                                             $class               : 'RobotPublisher',
                                                               outputPath          : 'RobotFrameWork/Results',
                                                               outputFileName      : '**/output.xml',
                                                               reportFileName      : '**/report.html',
