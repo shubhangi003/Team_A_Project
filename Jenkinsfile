@@ -15,7 +15,6 @@ pipeline{
            }
                 stage('Postman') {
                             steps {
-                                sleep(10)
                                 sh 'newman run copy1.postman_collection.json --environment copy1.postman_environment.json --reporters junit'
                             }
                             post {
