@@ -53,6 +53,7 @@ Delete Type
   Click Element           xpath:/html/body/app-root/div[1]/nav/div/ul/li[4]/a     #klickar på pet types
 
   #Delete the pettype
-  Click Button            //*[@id="pettypes"]/tbody/tr[7]/td[2]/button[2]
+  Wait Until Element Is Visible    //*[@id="pettypes"]/tbody/tr[3]/td[2]/button[2]
+  Click Button                     //*[@id="pettypes"]/tbody/tr[3]/td[2]/button[2]
 
   Close Browser
