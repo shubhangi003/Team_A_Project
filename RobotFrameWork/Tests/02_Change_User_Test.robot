@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation           This is a test of a Pet Clinic with Robot Framework / Change Owner
-Resource                ../Resources/02_Change_User_Keywords.robot
+Resource                ../Resource/02_Change_User_Keywords.robot
 Library                 SeleniumLibrary
 Test Setup              BEGIN WEB TEST
 Test Teardown           END WEB TEST

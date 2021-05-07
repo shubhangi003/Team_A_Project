@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation           This is a test of a Pet Clinic with Robot Framework / Change Pet
-Resource                ../Resources/04_Change_Pet_Keywords.robot
+Resource                ../Resource/04_Change_Pet_Keywords.robot
 Library                 SeleniumLibrary
 Test Setup              BEGIN WEB TEST
 Test Teardown           END WEB TEST
