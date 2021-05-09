@@ -18,9 +18,9 @@ pipeline{
                                 sh 'newman run petcopy_collection.json --environment petcopy_environment.json --reporters junit'
                             }
                             post {
-                                	always {
+                                always {
                                 		junit '**/*xml'
-                                	}
+                                	   }
                             }
 
                 }
