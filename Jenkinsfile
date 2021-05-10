@@ -14,18 +14,7 @@ pipeline{
                                     sh 'cd spring-petclinic-angular/static-content && curl https://jcenter.bintray.com/com/athaydes/rawhttp/rawhttp-cli/1.0/rawhttp-cli-1.0-all.jar -o rawhttp.jar && nohup java -jar ./rawhttp.jar serve . -p 4200 &'
                               }
                 }
-                stage('Postman') {
-                            steps {
-                                sleep(30)
-                                sh 'newman run PetClinic_01_collection.json --environment PetClinic_01_environment.json --reporters junit'
-                            }
-                            post {
-                                	always {
-                                		junit '**/*xml'
-                                	}
-                            }
-
-                }
+                
 
                 stage('Robot Framework') {
                               steps {
