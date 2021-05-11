@@ -18,6 +18,8 @@ pipeline{
                             steps {
                                 sleep(30)
                                 sh 'newman run Postman/PetClinic_01_collection.json --environment Postman/PetClinic_01_environment.json --reporters junit'
+                                sh 'newman run Postman/PetClinic_02_collection.json --environment Postman/PetClinic_02_environment.json --reporters junit'
+                                sh 'newman run Postman/PetClinic_visit_collection.json --environment Postman/PetClinic_visit_environment.json --reporters junit'
                             }
                             post {
                                 	always {
