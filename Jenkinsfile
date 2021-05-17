@@ -31,13 +31,10 @@ pipeline{
                 stage('Robot Framework') {
                               steps {
                                     sleep(10)
-                                    sh 'robot --variable BROWSER:headlesschrome -d RobotFrameWork/Results RobotFrameWork/Tests/Functional/**.robot'
+                                    sh 'robot --variable BROWSER:headlesschrome -d RobotFrameWork/Results RobotFrameWork/Tests/**.robot'
 
                               }
-                              steps {
-                                     sleep(10)
-                                     sh 'robot --variable BROWSER:headlesschrome -d RobotFrameWork/Results RobotFrameWork/Tests/Gherkin/**.robot'
-                              }
+
                               post {
                                     always {
                                            script {

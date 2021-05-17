@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation           This is a test of a Pet Clinic with Robot Framework /Performance Test 2
-Resource                ../../Resources/14_Performance_Scenario_2_Keywords.robot
+Resource                ../Resources/Ghrekin/14_Performance_Scenario_2_Keywords.robot
 Library                 SeleniumLibrary
 Test Setup              BEGIN WEB TEST
 Test Teardown           END WEB TEST
