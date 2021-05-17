@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation        UI testing in PetClinic by Robot Framework
 ...                  this is to test funcitionalities of Owners -- Eli
-Resource             .../Resources/Keywords_Own.robot
+Resource             ../../Resources/Keywords_Own.robot
 Library              SeleniumLibrary
 Test Setup          Generate Tests
 Test Teardown       Close Active Browser
