@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation           This is a test of a Pet Clinic with Robot Framework /Add new Owner and Pet
-Resource                ../Resources/03_Create_Extra_Pet_Keywords.robot
+Resource                .../Resources/03_Create_Extra_Pet_Keywords.robot
 Library                 SeleniumLibrary
 Test Setup              BEGIN WEB TEST
 Test Teardown           END WEB TEST

@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation           This is a test of a Pet Clinic with Robot Framework /Add Visit
-Resource                ../Resources/05_Add_Visit_Kyewords.robot
+Resource                .../Resources/05_Add_Visit_Kyewords.robot
 Library                 SeleniumLibrary
 Test Setup              BEGIN WEB TEST
 Test Teardown           END WEB TEST

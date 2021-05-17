@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation           This is a test of a Pet Clinic with Robot Framework /Remove Visit
-Resource                ../Resources/06_Edit_Remove_Visit_Keywords.robot
+Resource                .../Resources/06_Edit_Remove_Visit_Keywords.robot
 Library                 SeleniumLibrary
 Test Setup              BEGIN WEB TEST
 Test Teardown           END WEB TEST
