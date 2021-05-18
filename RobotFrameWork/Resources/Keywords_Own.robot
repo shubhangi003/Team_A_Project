@@ -86,8 +86,8 @@ Remove Pet Value     # revised by Feng
 Create Pet Visit    # revised by Feng
     Wait Until Element Is Visible       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[2]/td[1]/a
     Click Element                       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[2]/td[1]/a
-    Wait Until Element Is Visible       //button[contains(text(),"Add Visit")]
-    Click Element                       //button[contains(text(),"Add Visit")]
+    Wait Until Element Is Visible       //*[contains(text(),"Add Visit")]
+    Click Element                       //*[contains(text(),"Add Visit")]
 
     Input Text                          //*[@id="visit"]/div[1]/div[1]/div/input    2012/01/31
     Input Text                          //*[@id="description"]    Test Visit
