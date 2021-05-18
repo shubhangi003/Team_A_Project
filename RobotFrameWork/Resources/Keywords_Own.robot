@@ -81,7 +81,7 @@ Edit Pet Value
 
 Remove Pet Value
     Click Element                       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[3]/td[1]/a  #Click name of owner
-    Click Button                        xpath:/html/body/app-root/app-owner-detail/div/div/table[2]/tr/app-pet-list[4]/table/tr/td[1]/dl/button[2]   #Choose and delete pet
+    Click Button                        xpath:/html/body/app-root/app-owner-detail/div/div/table[2]/tr/app-pet-list[1]/table/tr/td[1]/dl/button[2]   #Choose and delete pet
 
 Create Pet Visit
     Wait Until Element Is Visible       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[2]/td[1]/a
