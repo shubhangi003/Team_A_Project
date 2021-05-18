@@ -86,7 +86,7 @@ Remove Pet Value     # revised by Feng
 Create Pet Visit    # revised by Feng
     Wait Until Element Is Visible       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[2]/td[1]/a
     Click Element                       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[2]/td[1]/a
-
+    Sleep                               10
     Page Should Contain                 Pets and Visits
     Click Button                        //button[contains(text(),"Add Visit")]
 
