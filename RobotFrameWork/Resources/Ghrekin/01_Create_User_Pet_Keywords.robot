@@ -53,7 +53,7 @@ AND can verify a new owner 1 is saved       # revised by Feng
     [Arguments]                         ${FIRST_NAME_OWNER_1}       ${LAST_NAME_OWNER_1}
     Page Should Contain                 Owners
     sleep                               5
-    Page Should Contain Link            //*[contains(text(),"${FIRST_NAME_OWNER_1} ${LAST_NAME_OWNER_1}")]
+    Page Should Contain Element         //*[contains(text(),"${FIRST_NAME_OWNER_1}")]
         #We can see in the list Number 11 is Thomas Johansson
 
 AND Add Pet 1 Value
