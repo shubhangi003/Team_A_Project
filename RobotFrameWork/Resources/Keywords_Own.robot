@@ -79,15 +79,16 @@ Edit Pet Value
     Click Element                       //*[@id="type"]/option[1]   #Choose option 1 for cat
     Click Button                        xpath:/html/body/app-root/app-pet-edit/div/div/form/div[6]/div/button[2]  #Save data
 
-Remove Pet Value
+Remove Pet Value     # revised by Feng
     Click Element                       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[3]/td[1]/a  #Click name of owner
     Click Button                        xpath:/html/body/app-root/app-owner-detail/div/div/table[2]/tr/app-pet-list[1]/table/tr/td[1]/dl/button[2]   #Choose and delete pet
 
-Create Pet Visit
+Create Pet Visit    # revised by Feng
     Wait Until Element Is Visible       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[2]/td[1]/a
     Click Element                       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[2]/td[1]/a
-    Wait Until Element Is Visible       xpath:/html/body/app-root/app-owner-detail/div/div/table[2]/tr/app-pet-list/table/tr/td[1]/dl/button[3]
-    Click Element                       xpath:/html/body/app-root/app-owner-detail/div/div/table[2]/tr/app-pet-list/table/tr/td[1]/dl/button[3]
+    Wait Until Element Is Visible       //button[contains(text(),"Add Visit")]
+    Click Element                       //button[contains(text(),"Add Visit")]
+
     Input Text                          //*[@id="visit"]/div[1]/div[1]/div/input    2012/01/31
     Input Text                          //*[@id="description"]    Test Visit
     Click Button                        //*[@id="visit"]/div[2]/div/button[2]
