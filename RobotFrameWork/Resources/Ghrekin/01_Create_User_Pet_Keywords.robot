@@ -47,9 +47,10 @@ AND can add a new Owner 1
     Click Button                        xpath:/html/body/app-root/app-owner-add/div/div/form/div[7]/div/button[2]   #Click Add owner (under alll input) to save it
 #We are back to the list with all owners
 
-AND can verify a new owner 1 is saved
+AND can verify a new owner 1 is saved       # revised by Feng
 #We are on the list with all owners
 #How to verify a right name is in the list?
+    [Arguments]                         ${FIRST_NAME_OWNER_1}       ${LAST_NAME_OWNER_1}
     Page Should Contain                 Owners
     Page Should Contain                 ${FIRST_NAME_OWNER_1}       ${LAST_NAME_OWNER_1}     #We can see in the list Number 11 is Thomas Johansson
 
