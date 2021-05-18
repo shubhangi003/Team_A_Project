@@ -51,7 +51,7 @@ AND can verify a new owner 1 is saved
 #We are on the list with all owners
 #How to verify a right name is in the list?
     Page Should Contain                 Owners
-    Wait Until Element Is Visible       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[11]/td[1]/a     #We can see in the list Number 11 is Thomas Johansson
+    Page Should Contain                 ${FIRST_NAME_OWNER_1}       ${LAST_NAME_OWNER_1}     #We can see in the list Number 11 is Thomas Johansson
 
 AND Add Pet 1 Value
 #We start from a list with all owners

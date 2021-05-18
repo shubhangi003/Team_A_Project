@@ -43,7 +43,7 @@ User can access website and add a new pet owner
     AND see all menu for Owners
     AND can click on "Add Owner" 1
     AND can add a new Owner 1    ${FIRST_NAME_OWNER_1}       ${LAST_NAME_OWNER_1}     ${ADDRESS_OWNER_1}      ${CITY_OWNER_1}    ${TELEPHONE_OWNER_1}
-    AND can verify a new owner 1 is saved
+    AND can verify a new owner 1 is saved       ${FIRST_NAME_OWNER_1}       ${LAST_NAME_OWNER_1}
     AND Add Pet 1 Value            ${PET_NAME_OWNER_1}     ${BIRTH_DATE_PET_OWNER_1}
     AND can verify a pet for owner 1 is saved
     AND can click on "Add Owner" 2
