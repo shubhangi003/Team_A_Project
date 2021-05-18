@@ -88,7 +88,7 @@ Create Pet Visit    # revised by Feng
     Click Element                       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[2]/td[1]/a
 
     Page Should Contain                 Pets and Visits
-    Click Button                        body > app-root > app-owner-detail > div > div > table:nth-child(10) > tr > app-pet-list > table > tr > td:nth-child(1) > dl > button:nth-child(9)
+    Click Button                        //button[contains(text(),"Add Visit")]
 
     Input Text                          //*[@id="visit"]/div[1]/div[1]/div/input    2012/01/31
     Input Text                          //*[@id="description"]    Test Visit
