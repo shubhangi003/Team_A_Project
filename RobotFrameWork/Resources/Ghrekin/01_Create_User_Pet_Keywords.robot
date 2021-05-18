@@ -52,7 +52,8 @@ AND can verify a new owner 1 is saved       # revised by Feng
 #How to verify a right name is in the list?
     [Arguments]                         ${FIRST_NAME_OWNER_1}       ${LAST_NAME_OWNER_1}
     Page Should Contain                 Owners
-    Page Should Contain                 ${FIRST_NAME_OWNER_1}       ${LAST_NAME_OWNER_1}     #We can see in the list Number 11 is Thomas Johansson
+    Page Should Contain                 ${FIRST_NAME_OWNER_1}
+    Page Should Contain                 ${LAST_NAME_OWNER_1}    #We can see in the list Number 11 is Thomas Johansson
 
 AND Add Pet 1 Value
 #We start from a list with all owners
