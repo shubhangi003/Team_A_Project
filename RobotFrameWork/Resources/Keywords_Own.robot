@@ -89,8 +89,7 @@ Create Pet Visit    # revised by Feng
 
     Page Should Contain                 Pets and Visits
     Sleep                               10
-    Wait Until Page Contains Element        xpath:/html/body/app-root/app-owner-detail/div/div/table[2]/tr/app-pet-list/table/tr/td[1]/dl/button[3]
-    Click Button                        xpath:/html/body/app-root/app-owner-detail/div/div/table[2]/tr/app-pet-list/table/tr/td[1]/dl/button[3]
+    Click Button                        //button[@class="btn btn-default", contains(text(),"Add Visit")]
 
     Input Text                          //*[@id="visit"]/div[1]/div[1]/div/input    2012/01/31
     Input Text                          //*[@id="description"]    Test Visit
