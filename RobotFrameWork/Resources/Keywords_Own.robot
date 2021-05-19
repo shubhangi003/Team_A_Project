@@ -88,7 +88,7 @@ Create Pet Visit    # revised by Feng
     Click Element                       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[2]/td[1]/a
 
     Page Should Contain                 Pets and Visits
-    Wait Until Page Contains Element     //*[contains(text(),"Add Visit")]       20
+    Wait Until Page Contains Element     //*[contains(text(),"Add Visit")]
     Click Button                         //button[contains(text(),"Add Visit")]
 
     Input Text                          //*[@id="visit"]/div[1]/div[1]/div/input    2012/01/31
