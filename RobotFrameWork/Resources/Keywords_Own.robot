@@ -89,7 +89,7 @@ Create Pet Visit    # revised by Feng
 
     Page Should Contain                 Pets and Visits
     Sleep                               10
-    Click Button                        //button[@class="btn btn-default", contains(text(),"Add Visit")]
+    Click Button                        //button[contains(text(),"Visit")]
 
     Input Text                          //*[@id="visit"]/div[1]/div[1]/div/input    2012/01/31
     Input Text                          //*[@id="description"]    Test Visit
