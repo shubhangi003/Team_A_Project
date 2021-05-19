@@ -27,4 +27,15 @@ pipeline{
 
                
     }
+     post {
+            always {
+                echo 'Hello! You Build a successful Build for API Testing !'
+                emailext (
+                subject: "YOUR Postman build in jenkin",
+                body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
+                to: 'shubhangi.patil@iths.se',
+                //attachmentsPattern: 'RobotFrameWork/Results/report.html, RobotFrameWork/Results/log.html'
+                        )
+                    }
+               }
 }
