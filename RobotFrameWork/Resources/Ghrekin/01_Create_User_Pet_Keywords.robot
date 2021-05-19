@@ -95,6 +95,7 @@ AND can verify a new owner 2 is saved
 #We are on the list with all owners
 #How to verify a right name is in the list?
     Page Should Contain                 Owners
+    Sleep                               5
     Wait Until Element Is Visible       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[12]/td[1]/a     #We can see in the list Number 12 is Sara Svensson
 
 AND Add Pet 2 Value
@@ -136,6 +137,7 @@ AND can verify a new owner 3 is saved
 #We are on the list with all owners
 #How to verify a right name is in the list?
     Page Should Contain                 Owners
+    Sleep                               5
     Wait Until Element Is Visible       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[13]/td[1]/a     #We can see in the list Number 13 is Ken Maccoy
 
 AND Add Pet 3 Value
