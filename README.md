@@ -2,12 +2,19 @@
 ##By Ultimate Testers
 ------------------------------------------------------------------------
 Project for IT-Högskolan's test automation course 2021(for Agile project )
-Courtesy   and  
-This Repository contains 
+Courtesy  ![alt petclinic-junit](git-res/infotiv.png) and ![alt petclinic-junit](git-res/iths.png) 
+
+=========================================================================
+#This Repository contains 
+
 -the backend  version of the Spring Pet clinic application  which provides only provides a REST API 
+
 -the front end application which is a client only  Use REST API from backend spring-petclinic-rest project You need start backend server before start frontend application.
+
 -the Postman and Robot framework tests to test the API and the website for functionalities
+
 - the jenkins files to be used for individual chosen functionalities
+
 Prerequisites for using this repository
   A system with the following specification
 Operating system 	-	Windows 10
