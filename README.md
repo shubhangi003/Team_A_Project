@@ -42,5 +42,6 @@ Courtesy  ![alt petclinic-junit](git-res/infotiv.png) and ![alt petclinic-junit]
 # About team
  Feng, Shubhangi, Jayashree, Maria, Ellias, Victor
 # About Repo
-# Credits
 
+## Credits
+All credit goes to [Spring Project](https://spring.io).
