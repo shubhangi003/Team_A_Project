@@ -6,28 +6,42 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class TestVet {
     Vet vet;
     Specialty spec_1,spec_2,spec_3;
+    Set<Specialty> setSpc;
 
     @BeforeEach
-    void setVet(){
+    void setUp(){
         vet=new Vet();
         spec_1=new Specialty();
         spec_2=new Specialty();
         spec_3=new Specialty();
+        setSpc= new HashSet<>();
+        setSpc.add(spec_1);
+        setSpc.add(spec_2);
     }
 
     @AfterEach
-    void clearVet(){
+    void tearDown(){
         vet.clearSpecialties();
     }
 
     @Test
     @DisplayName("When the set of specialities is empty")
-    void getNullSpecialities(){
+    void getEmptySpecialitiesInternal(){
         vet.setSpecialtiesInternal(null);
         assertEquals(0,vet.getNrOfSpecialties());
+    }
+
+    @Test
+    @DisplayName("When the set of specialities contains elements")
+    void getSpecialitiesInternal(){
+        vet.setSpecialtiesInternal(setSpc);
+        assertEquals(2, vet.getNrOfSpecialties());
     }
 
     @Test
