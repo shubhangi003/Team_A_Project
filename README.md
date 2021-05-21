@@ -45,7 +45,7 @@ Courtesy  ![alt petclinic-junit](git-res/infotiv.png) and ![alt petclinic-junit]
  Step 6. Now create the pipeline by following the  below steps.
          on the Dashboard after login click on new Item.
          provide a name for this new Item
-         Choose to make it a PipeLine
+         Choose to make it a PipeLine and click next
  
 
 # Steps for using terminal on your system
