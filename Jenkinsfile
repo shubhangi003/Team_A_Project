@@ -67,7 +67,7 @@ pipeline{
                                            }
                                     }
                               }
-                }
+
                 post {
                                         always {
                                         echo 'Hello there!Someone just ran a pipeline script at ITHS Jenkins. Please find updated status below'
@@ -97,6 +97,7 @@ pipeline{
                                         }
                                     }
                         }
+                }
                 }
 
 
