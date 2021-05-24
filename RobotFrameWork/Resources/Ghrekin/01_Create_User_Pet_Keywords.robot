@@ -52,7 +52,7 @@ AND can verify a new owner 1 is saved       # revised by Feng
 #How to verify a right name is in the list?
     [Arguments]                         ${FIRST_NAME_OWNER_1}       ${LAST_NAME_OWNER_1}
     Page Should Contain                 Owners
-    sleep                               5
+    Sleep                               5
     Element Should Contain              //*[@class="table table-striped"]/tbody  ${FIRST_NAME_OWNER_1} ${LAST_NAME_OWNER_1}
     #We can see in the list Number 11 is Thomas Johansson
 
