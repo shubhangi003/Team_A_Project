@@ -1,8 +1,10 @@
 pipeline{
     agent any
-    stages{
-                stage('Build and Run the Server--API Rest'){
-                            steps{
+        stages{
+            stage('para'){
+               parallel     {
+               stage('Build and Run the Server--API Rest'){
+                         steps{
                                 sh 'cd spring-petclinic-rest && nohup mvn spring-boot:run &'
                             }
                 }
@@ -79,6 +81,8 @@ pipeline{
 
                         }
                 }
+}
+}
 }
 
 
