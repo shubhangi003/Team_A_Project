@@ -1,11 +1,6 @@
 pipeline{
     agent any
     stages{
-
-        stage('Unit tests for models'){
-                steps{
-                    sh "mvn test"
-                }
         stage('Start Robot and Postman'){
             parallel{
                  stage('Build and Run the Server--API Rest'){
@@ -13,6 +8,10 @@ pipeline{
                                 sh 'cd spring-petclinic-rest && nohup mvn spring-boot:run &'
                             }
                 }
+                stage('Unit tests for models'){
+                        steps{
+                            sh "mvn test"
+                        }
                  stage('Run the Frontend--Angular'){
                               steps{
                                     sleep(10)
