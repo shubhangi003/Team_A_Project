@@ -4,7 +4,7 @@ pipeline{
 
         stage('Unit tests for models'){
                 steps{
-                    sh "cd spring-petclinic-rest && mvn test &"
+                    sh "mvn test"
                 }
         stage('Start Robot and Postman'){
             parallel{
