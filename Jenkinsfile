@@ -75,10 +75,10 @@ pipeline{
                                         always {
                                         echo 'Hello there!Someone just ran a pipeline script at ITHS Jenkins. Please find updated status below'
                                              emailext (
-                                                        to: 'jayashree.bondre@iths.se, shubhangi.patil@iths.se, feng.zhu@iths.se, victor.hedstrom@iths.se, maria.shishkina@iths.se, elias.arezomande@iths.se, manish.rajpal@iths.se',
-                                                        subject: "Build Started: ${currentBuild.fullDisplayName}",
-                                                        body: "${env.BUILD_URL} has result ${currentBuild.result}"
-                                                        attachmentsPattern: 'RobotFrameWork/Results/report.html, RobotFrameWork/Results/log.html'
+                                              to: 'jayashree.bondre@iths.se, shubhangi.patil@iths.se, feng.zhu@iths.se, victor.hedstrom@iths.se, maria.shishkina@iths.se, elias.arezomande@iths.se, manish.rajpal@iths.se',
+                                              subject: "Build Started: ${currentBuild.fullDisplayName}",
+                                              body: "${env.BUILD_URL} has result ${currentBuild.result}",
+                                              attachmentsPattern: 'RobotFrameWork/Results/report.html, RobotFrameWork/Results/log.html'
                                                                                 )
                                                }
 
