@@ -20,6 +20,40 @@ Click Owner
     Page Should Contain Element         xpath:/html/body/app-root/div[1]/nav/div/ul/li[2]     #"Owner" link
     Click Element                       xpath:/html/body/app-root/div[1]/nav/div/ul/li[2]
 
+Click Specalist
+    Page Should Contain Element         xpath:/html/body/app-root/div[1]/nav/div/ul/li[5]/a
+    Click Element                       xpath:/html/body/app-root/div[1]/nav/div/ul/li[5]/a
+Update Specalist
+    Page Should Contain                 Specialties
+    Page Should Contain Element         xpath:/html/body/app-root/app-specialty-list/div/div/h2  # click "all" link
+    Wait Until Element Is Visible       //*[@id="specialties"]/tbody/tr[1]/td[2]/button[1]
+    Click Button                        //*[@id="specialties"]/tbody/tr[1]/td[2]/button[1]
+    Input Text                          //*[@id="name"]  heart
+    Click Button                       //*[@id="specialty"]/div[2]/div/button[1]
+    #Page Should Contain                 xpath:/html/body/app-root/app-specialty-list/div/div/h2
+    Wait Until Element Is Visible       //*[@id="specialties"]/tbody/tr[2]/td[2]/button[1]
+    Click Button                       //*[@id="specialties"]/tbody/tr[2]/td[2]/button[1]
+    Input Text                          //*[@id="name"]  brain
+    Wait Until Element Is Visible       //*[@id="specialty"]/div[2]/div/button[1]
+    Click Button                       //*[@id="specialty"]/div[2]/div/button[1]
+    Wait Until Element Is Visible       //*[@id="specialties"]/tbody/tr[3]/td[2]/button[1]
+    Click Button                       //*[@id="specialties"]/tbody/tr[3]/td[2]/button[1]
+    Input Text                          //*[@id="name"]    Tooth
+    Click Button                       //*[@id="specialty"]/div[2]/div/button[1]
+
+Add Specalist
+    #Page Should Contain                Specialties
+
+
+    Wait Until Element Is Visible      xpath:/html/body/app-root/app-specialty-list/div/div/div/button[2]
+    Click Button                       xpath:/html/body/app-root/app-specialty-list/div/div/div/button[2]
+    Wait Until Element Is Visible       //*[@id="name"]
+    Input Text                          //*[@id="name"]    EliasA
+    Wait Until Element Is Visible       //*[@id="specialty"]/div[2]/div/button
+    Click Button                       //*[@id="specialty"]/div[2]/div/button
+    
+Delete Specalist
+    Click Button                       //*[@id="specialties"]/tbody/tr[4]/td[2]/button[2]
 
 All Query
     Page Should Contain Element         //*[@routerlink="/owners"]    # click "all" link
