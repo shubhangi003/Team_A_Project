@@ -18,6 +18,12 @@ pipeline{
                         steps {
                             sh 'cd spring-petclinic-rest && mvn test'
                             }
+                                     post {
+
+                            			success{ gerritReview score:1}
+                            			failure{ gerritReview score:-1}
+
+                                       }
                         }
                  stage('Run the Frontend--Angular'){
                               steps{
