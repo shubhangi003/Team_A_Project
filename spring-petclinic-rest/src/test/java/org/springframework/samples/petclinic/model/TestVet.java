@@ -59,19 +59,22 @@ public class TestVet {
     }
 
     @Test
-    @DisplayName("Test if the list containing Set can be created and the elements are correct")
+    @DisplayName("Test if the list containing Set can be created and the elements are sorted")
     void getListOfSpec(){
-        spec_1.setName("Dentist");
+        spec_3.setName("Dentist");
         spec_2.setName("Health Care");
-        spec_3.setName("Surgery");
+        spec_1.setName("Surgery");
 
         vet.addSpecialty(spec_1);
         vet.getSpecialties();
-        assertEquals("Dentist",vet.getSpecialties().get(0).toString());
+        assertEquals("Surgery",vet.getSpecialties().get(0).toString());
 
         vet.addSpecialty(spec_2);
         vet.addSpecialty(spec_3);
         vet.getSpecialties();
+
+        // test if elements are auto-sorted
+        assertEquals("Dentist",vet.getSpecialties().get(0).toString());
         assertEquals("Health Care",vet.getSpecialties().get(1).toString());
         assertEquals("Surgery",vet.getSpecialties().get(2).toString());
         assertEquals(3,vet.getSpecialties().size());
@@ -95,8 +98,10 @@ public class TestVet {
         assertEquals("Surgery",vet.getSpecialties().get(2).toString());
         assertEquals(3,vet.getSpecialties().size());
 
+        //test Set is cleaned
         vet.clearSpecialties();
         assertEquals(0,vet.getNrOfSpecialties());
+        //test List is cleaned
         vet.getSpecialties();
         assertEquals(0,vet.getSpecialties().size());
     }

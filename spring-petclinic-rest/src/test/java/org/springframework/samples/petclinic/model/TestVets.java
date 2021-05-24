@@ -42,8 +42,10 @@ public class TestVets {
         vets_inst.getVetList().add(vet_2);
         assertEquals(2,vets_inst.getVetList().size());
         assertNotEquals(3,vets_inst.getVetList().size());
+        assertEquals(vet_1, vets_inst.getVetList().get(0));
 
         vets_inst.getVetList().add(vet_3);
         assertEquals(3,vets_inst.getVetList().size());
+        assertEquals(vet_3, vets_inst.getVetList().get(2));
     }
 }
