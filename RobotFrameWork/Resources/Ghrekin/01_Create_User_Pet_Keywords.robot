@@ -59,6 +59,7 @@ AND can verify a new owner 1 is saved       # revised by Feng
 AND Add Pet 1 Value
 #We start from a list with all owners
     [Arguments]                         ${PET_NAME_OWNER_1}     ${BIRTH_DATE_PET_OWNER_1}
+    Sleep                               10
     Click Element                       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[11]/td[1]/a     #Click on the 11th owner on the list (Thomas Johansson)
     Click Button                        xpath:/html/body/app-root/app-owner-detail/div/div/button[3]    #Click on "Add new pet"
     Input Text                          id:name    ${PET_NAME_OWNER_1}

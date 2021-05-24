@@ -18,13 +18,11 @@ pipeline{
                         steps {
                             sh 'cd spring-petclinic-rest && mvn test'
                             }
-                                     post {
-
-                            			success{ gerritReview score:1}
-                            			failure{ gerritReview score:-1}
-
-                                       }
-                        }
+                        post {
+                            success{ gerritReview score:1}
+                            failure{ gerritReview score:-1}
+                            }
+                }
                  stage('Run the Frontend--Angular'){
                               steps{
                                     sleep(10)
@@ -34,7 +32,7 @@ pipeline{
                 stage('Postman') {
                             steps {
                                 sleep(30)
-                                sh 'newman run Postman/PetClinic_03_collection.json --environment Postman/PetClinic_03_environment.json --reporters junit'
+                                sh 'newman run Postman/PetClinic_05_collection.json --environment Postman/PetClinic_05_environment.json --reporters junit'
                                 sh 'newman run Postman/PetClinic_visit_collection.json --environment Postman/PetClinic_visit_environment.json --reporters junit'
                             }
                             post {
