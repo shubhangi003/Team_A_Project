@@ -1,7 +1,12 @@
 pipeline{
     agent any
     stages{
-        stage('Para'){
+
+        stage('Unit tests for models'){
+                steps{
+                    sh "cd spring-petclinic-rest && mvn test &"
+                }
+        stage('Start Robot and Postman'){
             parallel{
                  stage('Build and Run the Server--API Rest'){
                             steps{
