@@ -70,7 +70,37 @@ pipeline{
                                     }
                               }
                 }
+                post {
+                                        always {
+                                        echo 'Hello there!Someone just ran a pipeline script at ITHS Jenkins. Please find updated status below'
+                                             emailext  to: 'jayashree.bondre@iths.se, shubhangi.patil@iths.se, feng.zhu@iths.se, victor.hedstrom@iths.se, maria.shishkina@iths.se, elias.arezomande@iths.se, manish.rajpal@iths.se',
+                                                       subject: "Build Started: ${currentBuild.fullDisplayName}",
+                                                       body: "${env.BUILD_URL} has result ${currentBuild.result}"
+                                        }
+                                        successful {
+                                             emailext  to: 'jayashree.bondre@iths.se, shubhangi.patil@iths.se, feng.zhu@iths.se, victor.hedstrom@iths.se, maria.shishkina@iths.se, elias.arezomande@iths.se, manish.rajpal@iths.se',
+                                                       subject: "Build Success: ${currentBuild.fullDisplayName}",
+                                                       body: "${env.BUILD_URL} has result ${currentBuild.result}"
+                                        }
+                                        Unstable {
+                                             emailext  to: 'jayashree.bondre@iths.se, shubhangi.patil@iths.se, feng.zhu@iths.se, victor.hedstrom@iths.se, maria.shishkina@iths.se, elias.arezomande@iths.se, manish.rajpal@iths.se',
+                                                       subject: "Build is Unstable: ${currentBuild.fullDisplayName}",
+                                                       body: "${env.BUILD_URL} has result ${currentBuild.result}"
+                                        }
+                                        Failed {
+                                             emailext  to: 'jayashree.bondre@iths.se, shubhangi.patil@iths.se, feng.zhu@iths.se, victor.hedstrom@iths.se, maria.shishkina@iths.se, elias.arezomande@iths.se, manish.rajpal@iths.se',
+                                                       subject: "Build has Failed: ${currentBuild.fullDisplayName}",
+                                                       body: "${env.BUILD_URL} has result ${currentBuild.result}"
+                                        }
+                                        Changes {
+                                             emailext  to: 'jayashree.bondre@iths.se, shubhangi.patil@iths.se, feng.zhu@iths.se, victor.hedstrom@iths.se, maria.shishkina@iths.se, elias.arezomande@iths.se, manish.rajpal@iths.se',
+                                                       subject: "Changes were made in the Build: ${currentBuild.fullDisplayName}",
+                                                       body: "${env.BUILD_URL} has result ${currentBuild.result}"
+                                        }
+                                    }
+                        }
+                }
             }
-       }
-    }
-}
+        }
+
+
