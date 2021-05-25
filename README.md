@@ -34,6 +34,7 @@ Courtesy  ![alt petclinic-junit](git-res/infotiv.png) and ![alt petclinic-junit]
  
 # Steps to use  the Repo.
   Step 1. Fork the repo to your own github
+  
   Step 2.  Now  you have a choice to use an IDE or terminal on you system.
   Step 3. Open the spring-petclinic-rest folder and follow the instrructions of the readme.md there.     ( Folder contents courtesy by Infotive)
   Step 4. Open the spring-petclinic-angular folder and follow the instrructions of the readme.md there.   ( Folder contents courtesy by Infotive)
