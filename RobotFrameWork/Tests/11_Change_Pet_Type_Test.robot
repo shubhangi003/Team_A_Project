@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation           This is a test of a Pet Clinic with Robot Framework /Change pet types
-Resource                ../Resources/Ghrekin/11_Change_Pet_Type_Keywords.robot
+Resource                ../Resources/11_Change_Pet_Type_Keywords.robot
 Library                 SeleniumLibrary
 Test Setup              BEGIN WEB TEST
 Test Teardown           END WEB TEST

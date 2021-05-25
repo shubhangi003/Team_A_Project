@@ -47,19 +47,15 @@ AND can add a new Owner 1
     Click Button                        xpath:/html/body/app-root/app-owner-add/div/div/form/div[7]/div/button[2]   #Click Add owner (under alll input) to save it
 #We are back to the list with all owners
 
-AND can verify a new owner 1 is saved       # revised by Feng
+AND can verify a new owner 1 is saved
 #We are on the list with all owners
 #How to verify a right name is in the list?
-    [Arguments]                         ${FIRST_NAME_OWNER_1}       ${LAST_NAME_OWNER_1}
     Page Should Contain                 Owners
-    Sleep                               5
-    Element Should Contain              //*[@class="table table-striped"]/tbody  ${FIRST_NAME_OWNER_1} ${LAST_NAME_OWNER_1}
-    #We can see in the list Number 11 is Thomas Johansson
+    Wait Until Element Is Visible       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[11]/td[1]/a     #We can see in the list Number 11 is Thomas Johansson
 
 AND Add Pet 1 Value
 #We start from a list with all owners
     [Arguments]                         ${PET_NAME_OWNER_1}     ${BIRTH_DATE_PET_OWNER_1}
-    Sleep                               10
     Click Element                       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[11]/td[1]/a     #Click on the 11th owner on the list (Thomas Johansson)
     Click Button                        xpath:/html/body/app-root/app-owner-detail/div/div/button[3]    #Click on "Add new pet"
     Input Text                          id:name    ${PET_NAME_OWNER_1}
@@ -96,7 +92,6 @@ AND can verify a new owner 2 is saved
 #We are on the list with all owners
 #How to verify a right name is in the list?
     Page Should Contain                 Owners
-    Sleep                               5
     Wait Until Element Is Visible       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[12]/td[1]/a     #We can see in the list Number 12 is Sara Svensson
 
 AND Add Pet 2 Value
@@ -138,7 +133,6 @@ AND can verify a new owner 3 is saved
 #We are on the list with all owners
 #How to verify a right name is in the list?
     Page Should Contain                 Owners
-    Sleep                               5
     Wait Until Element Is Visible       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[13]/td[1]/a     #We can see in the list Number 13 is Ken Maccoy
 
 AND Add Pet 3 Value

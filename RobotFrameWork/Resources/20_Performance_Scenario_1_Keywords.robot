@@ -50,13 +50,13 @@ AND can add a new Owner
 AND can verify a new owner is saved
 #We are on the list with all owners
     Page Should Contain                 Owners
-    Wait Until Element Is Visible       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[11]/td[1]/a
-    #We can see in the list Number 11 is Eva Olsson (if we didn't run any tests before. otherwise it will be another number
+    Wait Until Element Is Visible       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[14]/td[1]/a
+    #We can see in the list Number 14 is Eva Olsson (if we didn't run any tests before. otherwise it will be another number
 
 AND Add Pet 1
 #We start from a list with all owners
     [Arguments]                         ${PERFORMANCE_1_PET_1_NAME}     ${PERFORMANCE_1_BIRTH_DATE_PET_1}
-    Click Element                       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[11]/td[1]/a     #Click on the 11th owner on the list (Eva Olsson)
+    Click Element                       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[14]/td[1]/a     #Click on the 14th owner on the list (Eva Olsson)
     Click Button                        xpath:/html/body/app-root/app-owner-detail/div/div/button[3]    #Click on "Add new pet"
     Input Text                          id:name    ${PERFORMANCE_1_PET_1_NAME}
     Input Text                          xpath:/html/body/app-root/app-pet-add/div/div/form/div[4]/div/input    ${PERFORMANCE_1_BIRTH_DATE_PET_1}
@@ -64,12 +64,12 @@ AND Add Pet 1
     Click Element                       //*[@id="type"]/option[1]   #Choose option 1 Cat
     Click Button                        xpath:/html/body/app-root/app-pet-add/div/div/form/div[6]/div/button[2]   #Click on "add pet" to save new pet
     Wait Until Element Is Visible       xpath:/html/body/app-root/app-owner-detail/div/div/table[2]
-#We are now on the page with detailed information about towner 1: "Owner information" & "Pets and Visits"
+#We are now on the page with detailed information about owner 1: "Owner information" & "Pets and Visits"
 
 AND Add Pet 2
 #We start from a list with all owners
     [Arguments]                         ${PERFORMANCE_1_PET_2_NAME}     ${PERFORMANCE_1_BIRTH_DATE_PET_2}
-    #Click Element                       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[13]/td[1]/a     #Click on the 11th owner on the list (Eva Olsson)
+    #Click Element                       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[13]/td[1]/a     #Click on the 14th owner on the list (Eva Olsson)
     Click Button                        xpath:/html/body/app-root/app-owner-detail/div/div/button[3]    #Click on "Add new pet"
     Input Text                          id:name    ${PERFORMANCE_1_PET_2_NAME}
     Input Text                          xpath:/html/body/app-root/app-pet-add/div/div/form/div[4]/div/input    ${PERFORMANCE_1_BIRTH_DATE_PET_2}
@@ -87,8 +87,8 @@ AND can verify 2 pets for owner are saved
 #We are back to the list with all owners
 
 AND can remove pet 2
-    Wait Until Element Is Visible       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[11]/td[1]/a
-    Click Element                       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[11]/td[1]/a     #Click on the 11th owner on the list (Eva Olsson)
+    Wait Until Element Is Visible       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[14]/td[1]/a
+    Click Element                       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[14]/td[1]/a     #Click on the 14th owner on the list (Eva Olsson)
     Wait Until Element Is Visible       xpath:/html/body/app-root/app-owner-detail/div/div/table[2]/tr/app-pet-list[1]/table
     Click Button                        xpath:/html/body/app-root/app-owner-detail/div/div/table[2]/tr/app-pet-list[1]/table/tr/td[1]/dl/button[2]
     #Click on "Delete Pet" button for Toro
@@ -106,7 +106,7 @@ THEN can verify modifications for owner
     Wait Until Element Is Visible       xpath:/html/body/app-root/app-owner-detail/div/div/button[1]    #Wait until "Back" button is visible
     Click Button                        xpath:/html/body/app-root/app-owner-detail/div/div/button[1]    #Click on "Back" to go to the list with all owners
     Page Should Contain                 Owners
-    Wait Until Element Is Visible       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[11]/td[1]/a     #Owner number 11 Eva Nilsson (before - Olsson) is now visable
+    Wait Until Element Is Visible       xpath:/html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[14]/td[1]/a     #Owner number 14 Eva Nilsson (before - Olsson) is now visable
 
 END WEB TEST
     Close Browser

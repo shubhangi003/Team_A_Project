@@ -47,17 +47,12 @@ AND can remove a visit for Owners 1 pet 1
 AND can update a visit for Owners 1 pet 2
 #Add visit for user 1 Thomas Johanssons dog Lassie who has now URGENT problems with stomack
     [Arguments]                         ${NEW_DESCRIPTION_VISIT_PET_2_OWNER_1}
-    #Wait Until Element Is Visible       xpath:/html/body/app-root/app-owner-detail/div/div/table[2]/tr/app-pet-list[1]/table/tr/td[1]/dl/button[3]      #button "Add Visit" is visable
     Wait Until Element Is Visible       xpath:/html/body/app-root/app-owner-detail/div/div/table[2]/tr/app-pet-list[1]/table/tr/td[2]/app-visit-list/table/tr/td[3]/button[1]       #button "Edit Visit" is visable
     Click Button                        xpath:/html/body/app-root/app-owner-detail/div/div/table[2]/tr/app-pet-list[1]/table/tr/td[2]/app-visit-list/table/tr/td[3]/button[1]       #Click on "Edit Visit" for pet 2
-    #Click Button                        xpath:/html/body/app-root/app-owner-detail/div/div/table[2]/tr/app-pet-list[1]/table/tr/td[1]/dl/button[3]      #Click on "Edit Visit" for pet 2
-    #Wait Until Element Is Visible       xpath:/html/body/app-root/app-visit-add/div/div/h2      #verify that we are on the page for adding new visit and see "New Visit"
     Wait Until Element Is Visible       xpath:/html/body/app-root/app-visit-edit/div/div/h2     #verify that we are on the page for editing visit and see "Edit Visit"
-    #Wait Until Element Is Visible       xpath:/html/body/app-root/app-visit-edit/div/div/table/tr/td[1] #verify that we have a pet visable in the list
     Clear Element Text                  id:description
     Input Text                          id:description      ${NEW_DESCRIPTION_VISIT_PET_2_OWNER_1}     #type description for visit
     Click Button                        //*[@id="visit"]/div[2]/div/button[2]       #Click on button "Edit Visit"
-    #Click Button                        //*[@id="visit"]/div[2]/div/button[2]
 
 AND we can see new information saved
     Wait Until Element Is Visible       xpath:/html/body/app-root/app-owner-detail/div/div/h2[2]    #"Pets and Visits# are visable

@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation           This is a test of a Pet Clinic with Robot Framework /Remove a Veterinarian
-Resource                ../Resources/Ghrekin/09_Remove_Veterinarian_Keywords.robot
+Resource                ../Resources/09_Remove_Veterinarian_Keywords.robot
 Library                 SeleniumLibrary
 Test Setup              BEGIN WEB TEST
 Test Teardown           END WEB TEST
