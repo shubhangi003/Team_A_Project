@@ -34,32 +34,49 @@ Courtesy  ![alt petclinic-junit](git-res/infotiv.png) and ![alt petclinic-junit]
  
 # Steps to use  the Repo.
   Step 1. Fork the repo to your own github
+  
   Step 2.  Now  you have a choice to use an IDE or terminal on you system.
+
   Step 3. Open the spring-petclinic-rest folder and follow the instrructions of the readme.md there.     ( Folder contents courtesy by Infotive)
+
   Step 4. Open the spring-petclinic-angular folder and follow the instrructions of the readme.md there.   ( Folder contents courtesy by Infotive)
+
   Step 5. once both the servers are up and running check the following links to check functionality
+
           API             http://localhost:9966/petclinic/swagger-ui.html            . It should work
-          URL             now open new browser tab and open the following url     >> http://127.0.0.1:4200    . This will land on http://127.0.0.1:4200/petclinic/
+
+          URL             now open new browser tab and open the following url     >> http://127.0.0.1:4200    . This will take you to http://127.0.0.1:4200/petclinic/
           
           Jeninks         http://localhost:8080/              (if running locally on 8080, else follow the specific link for your jenkins server.)
+
  Step 6. Now create the pipeline by following the  below steps.
+
          on the Dashboard after login click on new Item.
+
          provide a name for this new Item
+
          Choose to make it a PipeLine and click next
  
 
-# Steps for using terminal on your system
+# Steps for using terminal on your system (to be done)
   Step 3. Make sure Git is installed on your system.
+
   Step 4. Run the following commands on the terminal 
+
             git clone https://github.com/fengzse/Team_A_Project.git	
             
  
-# Steps for using IDE on your system
+# Steps for using IDE on your system (to be done)
  
             
 # About team
- Feng, Shubhangi, Jayashree, Maria, Ellias, Victor
-# About Repo
+
+ Ellias, Feng, Jayashree, Manish, Maria, Shubhangi, Victor
+
+# About Repo (repo structure)
+We have made the following structure  
+![alt petclinic-junit](git-res/RepoStructure.png)
+
 
 ## Credits
 All credit goes to [Spring Project](https://spring.io).
