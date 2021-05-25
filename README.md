@@ -50,23 +50,33 @@ Courtesy  ![alt petclinic-junit](git-res/infotiv.png) and ![alt petclinic-junit]
           Jeninks         http://localhost:8080/              (if running locally on 8080, else follow the specific link for your jenkins server.)
 
  Step 6. Now create the pipeline by following the  below steps.
+
          on the Dashboard after login click on new Item.
+
          provide a name for this new Item
+
          Choose to make it a PipeLine and click next
  
 
-# Steps for using terminal on your system
+# Steps for using terminal on your system (to be done)
   Step 3. Make sure Git is installed on your system.
+
   Step 4. Run the following commands on the terminal 
+
             git clone https://github.com/fengzse/Team_A_Project.git	
             
  
-# Steps for using IDE on your system
+# Steps for using IDE on your system (to be done)
  
             
 # About team
- Feng, Shubhangi, Jayashree, Maria, Ellias, Victor
-# About Repo
+
+ Ellias, Feng, Jayashree, Manish, Maria, Shubhangi, Victor
+
+# About Repo (repo structure)
+We have made the following structure  
+![alt petclinic-junit](git-res/RepoStructure.png)
+
 
 ## Credits
 All credit goes to [Spring Project](https://spring.io).
