@@ -1,0 +1,91 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build Rest-API') {
+                    steps {
+                         sh "cd spring-petclinic-rest && nohup mvn spring-boot:run &"
+                    }
+                }
+	stage('Build Angular-Front End') {
+                  steps {
+                        sh 'cd spring-petclinic-angular/static-content && curl https://jcenter.bintray.com/com/athaydes/rawhttp/rawhttp-cli/1.0/rawhttp-cli-1.0-all.jar -o rawhttp.jar && nohup java -jar ./rawhttp.jar serve . -p 4200 &'
+            }
+        }
+
+        stage('Build JUnit') {
+            steps {
+                sh 'cd spring-petclinic-rest && mvn compile &'
+
+            }
+        }
+
+        stage('JUnit') {
+            steps {
+            	catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
+            		sh 'cd spring-petclinic-rest && mvn test'
+            	}
+            }
+            post {
+            	always {
+            		junit '**/target/surefire-reports/TEST*.xml'
+            	}
+            }
+        }
+         
+        stage('Postman') {
+            steps {
+            	catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
+            	sh 'newman run Postman/PetClinic_05_collection.json --environment Postman/PetClinic_05_environment.json --reporters junit'
+            	}
+            }
+        }
+
+        stage('Robot') {
+            steps {
+            	catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
+
+                sh 'robot --variable BROWSER:headlesschrome -d RobotFrameWork/Results RobotFrameWork/Tests'
+
+                  }
+            }
+            post {
+                always {
+                    script {
+                        step(
+                            [
+                                $class                  :   'RobotPublisher',
+                                outputPath              :   'spring-petclinic-angular/Robotframework/Tests/Results',
+                                outputFileName          :   '**/output.xml',
+                                reportFileName          :   '**/report.html',
+                                logFileName             :   '**/log.html',
+                                disableArchiveOutput    :   false,
+                                passThreshold           :   50,
+                                unstableThreshold       :   40,
+                                otherFiles              :   "**/*.png,**/*.jpg",
+                            ]
+                        )
+                    }
+                }
+            }
+        }
+    }
+
+    post{
+        success{
+        	emailext (
+            	subject: "PASSED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                body: """<p>STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+                		<p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>""",
+                to: "shubhangi.patil@iths.se"
+            )
+        }
+        failure{
+        	emailext (
+            	subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+            	body: """<p>STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+            			<p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>""",
+            	to: "shubhangi.patil@iths.se"
+            )
+
+        }
+    }
