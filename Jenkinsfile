@@ -16,15 +16,38 @@ pipeline{
                 stage('Postman') {
                             steps {
                                 sh 'newman run Postman/PetClinic_05_collection.json --environment Postman/PetClinic_05_environment.json --reporters junit'
-                            }
+                               }
                             post {
                                 always {
                                 		junit '**/*xml'
                                 	   }
-                            }
-
+                                 }
+                               }
+           stage('Robot Tests') {
+            steps {
+                //sh 'robot --variable BROWSER:headlesschrome -d Results  Tests'
+                sh 'robot --variable BROWSER:headlesschrome -d RobotFrameWork/Results RobotFrameWork/Tests'
+            }
+            post {
+                always {
+                    script {
+                          step(
+                                [
+                                  $class              : 'RobotPublisher',
+                                  outputPath          : 'Results',
+                                  outputFileName      : '**/output.xml',
+                                  reportFileName      : '**/report.html',
+                                  logFileName         : '**/log.html',
+                                  disableArchiveOutput: false,
+                                  passThreshold       : 50,
+                                  unstableThreshold   : 40,
+                                  otherFiles          : "**/*.png,**/*.jpg",
+                                ]
+                          )
+                    }
                 }
-
+            }
+        } 
                
     }
      post {
