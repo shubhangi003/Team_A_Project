@@ -12,7 +12,7 @@ pipeline {
             }
         }
                 
-        stage('Robot_CriticalFlow') {
+        stage('Robot_CriticalFlow Test') {
             steps {
             	catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
                 sh 'robot --variable BROWSER:headlesschrome -d RobotFrameWork/CriticalFlow/Results RobotFrameWork/CriticalFlow/Tests'
