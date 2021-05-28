@@ -1,1 +1,43 @@
-
+pipeline {
+    agent any
+    stages {
+        stage('Build Rest-API') {
+                    steps {
+                         sh "cd spring-petclinic-rest && nohup mvn spring-boot:run &"
+                    }
+                }
+	stage('Build Angular-Front End') {
+                  steps {
+                        sh 'cd spring-petclinic-angular/static-content && curl https://jcenter.bintray.com/com/athaydes/rawhttp/rawhttp-cli/1.0/rawhttp-cli-1.0-all.jar -o rawhttp.jar && nohup java -jar ./rawhttp.jar serve . -p 4200 &'
+            }
+        }
+                
+        stage('Robot_CriticalFlow') {
+            steps {
+            	catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
+                sh 'robot --variable BROWSER:headlesschrome -d RobotFrameWork/CriticalFlow/Results RobotFrameWork/CriticalFlow/Tests'
+                  }
+            }
+            post {
+                always {
+                    script {
+                        step(
+                            [
+                                $class                  :   'RobotPublisher',
+                                outputPath              :   'Robotframework/CriticalFlow/Results',
+                                outputFileName          :   '**/output.xml',
+                                reportFileName          :   '**/report.html',
+                                logFileName             :   '**/log.html',
+                                disableArchiveOutput    :   false,
+                                passThreshold           :   50,
+                                unstableThreshold       :   40,
+                                otherFiles              :   "**/*.png,**/*.jpg",
+                            ]
+                        )
+                    }
+                }
+            }
+        }
+    }
+    
+  }
